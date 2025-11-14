@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cancer Awareness & Support</title>
+  <style>
+    :root{
+      --accent:#e11d48; /* warm pink/red */
+      --muted:#6b7280;
+      --bg:#f8fafc;
+      --card:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:#0f172a;}
+
+    /* Hero / banner */
+    .hero{
+      min-height:55vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:3rem 1rem;
+      background-image:linear-gradient(rgba(2,6,23,0.45), rgba(2,6,23,0.45)), url('https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover;
+      background-position:center;
+      color:#fff;
+    }
+    .container{max-width:1100px;width:100%;}
+    .hero-inner{display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center}
+
+    .hero h1{font-size:2.1rem;margin:0 0 0.6rem;line-height:1.05}
+    .hero p{margin:0 0 1.25rem;color:rgba(255,255,255,0.95)}
+    .cta{display:inline-block;background:var(--accent);color:#fff;padding:0.75rem 1.1rem;border-radius:10px;text-decoration:none;font-weight:600;box-shadow:0 6px 18px rgba(225,29,72,0.18)}
+
+    /* Card/form */
+    .card{background:var(--card);padding:1.25rem;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.08)}
+    form .row{display:flex;gap:0.75rem}
+    label{display:block;font-size:0.85rem;margin-bottom:0.35rem;color:var(--muted)}
+    input[type="text"], input[type="email"], textarea{width:100%;padding:0.6rem 0.7rem;border-radius:8px;border:1px solid #e6e9ee;font-size:0.95rem}
+    textarea{min-height:120px;resize:vertical}
+    .submit{background:var(--accent);color:#fff;border:none;padding:0.7rem 1rem;border-radius:10px;font-weight:600;cursor:pointer}
+    .muted{color:var(--muted);font-size:0.9rem}
+
+    /* footer */
+    footer{padding:2rem 1rem;text-align:center;color:var(--muted);font-size:0.9rem}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .hero-inner{grid-template-columns:1fr;}
+      .hero{padding:2rem 1rem}
+      .hero h1{font-size:1.75rem}
+    }
+
+    @media (max-width:420px){
+      .hero h1{font-size:1.4rem}
+    }
+
+    /* small helpers */
+    .success{background:#ecfccb;color:#164e07;padding:0.6rem 0.8rem;border-radius:8px;margin-top:0.5rem;font-weight:600}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" style="display:flex;align-items:center;justify-content:space-between;padding:1rem 0;">
+      <div style="display:flex;gap:0.75rem;align-items:center">
+        <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#ffb8c8,#e11d48);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">CA</div>
+        <div style="font-weight:700">Cancer Awareness</div>
+      </div>
+      <div style="color:rgba(255,255,255,0.9);font-weight:600">Support · Resources · Community</div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <h1>You're not alone — support, resources, and hope.</h1>
+        <p>We connect survivors, caregivers, and allies. Find reliable information, local support groups, and ways to help — small actions can make a big difference.</p>
+        <p><a class="cta" href="#contact">Join our community</a></p>
+        <p class="muted">If you're in immediate danger or need urgent medical attention, please contact emergency services in your area.</p>
+      </div>
+
+      <aside class="card" aria-labelledby="contact-title">
+        <h3 id="contact-title" style="margin:0 0 0.5rem">Get in touch</h3>
+        <p class="muted" style="margin:0 0 1rem">Share your story, ask a question, or request support. We'll respond to messages locally (no backend — demo only).</p>
+
+        <form id="contactForm" onsubmit="return handleSubmit(event)">
+          <div style="margin-bottom:0.75rem">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+          </div>
+          <div style="margin-bottom:0.75rem">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          </div>
+          <div style="margin-bottom:0.75rem">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:0.75rem">
+            <button type="submit" class="submit">Send message</button>
+            <div id="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </aside>
+    </div>
+  </section>
+
+  <main class="container" style="padding:2rem 1rem">
+    <section style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start">
+      <div class="card">
+        <h3 style="margin-top:0">About</h3>
+        <p class="muted">This landing page is a simple, responsive template for cancer awareness and support. Use it as a starting point — add links to vetted resources, local organizations, helplines, and events to make it production-ready.</p>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">Quick links</h3>
+        <ul style="margin:0;padding-left:1.15rem;color:var(--muted)">
+          <li>Local support groups</li>
+          <li>Educational resources</li>
+          <li>Volunteer & donation options</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Made with care · © <span id="year"></span> Cancer Awareness & Support</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const status = document.getElementById('status');
+
+      // basic validation
+      if(!name || !email || !message){
+        status.innerHTML = '<div class="success" style="background:#fff3f2;color:#7f1d1d">Please fill all fields.</div>';
+        return false;
+      }
+
+      // Simulate a successful send (no backend)
+      status.innerHTML = '<div class="success">Thanks, ' + (name.split(' ')[0] || 'friend') + '! Your message has been received (demo).</div>';
+
+      // Optionally clear the form
+      e.target.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
